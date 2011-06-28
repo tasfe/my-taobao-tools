@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{SYSTEM_NAME}}- Ver:{{SYSTEM_VER}}</title>
+<link href="/static/main.css" rel="stylesheet" type="text/css" />
+<link href="/static/icon.css" rel="stylesheet" type="text/css" />
+<link href="/static/easyui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/jquery.min.js"></script>
+<script type="text/javascript" src="/static/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/static/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+var user_list={};
+var present='onsale_report';
+$(document).ready(function(){
+	$.getJSON('/ajax/userlist',function(data){
+		user_list=data;
+		$('a[name=present]').append(user_list['{{SHOP_USER}}']['shop']);
+		$('.top_left').append('<div id="appkey" class="easyui-menu" style="width:120px;"></div>');
+		$.each(user_list,function(key,value){
+			$('#appkey').append('<div appkey="'+key+'">'+value['shop']+'</div>');
+		});
+		$(document).bind('contextmenu',function(mouse){
+			$('#appkey').menu('show',{left:mouse.pageX,top:mouse.pageY});
+			return false;
+		});
+		$('a[name=present]').click(function(mouse){
+			$('#appkey').menu('show',{left:mouse.pageX,top:mouse.pageY});
+			return false;
+		});
+		$('#appkey div[appkey]').click(function(){
+			change_user($(this).attr('appkey'));
+		});
+		$.parser.parse('.top_left');
+	});
+	$('#tb_center').load('/html?file='+present,function(){$.parser.parse('#tb_center');});
+	$('.tb_menu .easyui-linkbutton').click(function(){
+		loading();
+		present=$(this).attr('href');
+		$('#tb_center *').unbind();
+		$('#tb_center').empty();
+		$('.layout-panel-center .panel-title').text($(this).text());
+		$('#tb_center').load('/html?file='+present,function(){$.parser.parse('#tb_center');loaded();})
+		return false;
+	});
+});
+function change_user(appkey){
+	loading();
+	$.get('/ajax/userchange',{appkey:appkey},function(data){
+		if(data=='success'){
+			$('a[name=present]').empty();
+			$('a[name=present]').append(user_list[appkey]['shop']);
+			$('#tb_center').load('/html?file='+present,function(){$.parser.parse('#tb_center');loaded();});
+		}else{
+			$.messager.confirm('用户切换','处理失败，是否需要重置页面？',function(choose){choose?location.reload():loaded();});
+		}
+	},'text');
+}
+function loading(){
+	loaded();
+	var wrap=$('div.layout-panel-center');
+	$('<div class="datagrid-mask"></div>').css({display:"block",width:wrap.width(),height:wrap.height()}).appendTo(wrap);
+	$('<div class="datagrid-mask-msg"></div>').html($.fn.datagrid.defaults.loadMsg).appendTo(wrap).css({display:"block",left:(wrap.width()-$("div.datagrid-mask-msg",wrap).outerWidth())/2,top:(wrap.height()-$("div.datagrid-mask-msg",wrap).outerHeight())/2});
+}
+function loaded(){
+	var wrap=$('div.layout-panel-center');
+	wrap.children("div.datagrid-mask-msg").remove();
+	wrap.children("div.datagrid-mask").remove();
+}
+</script>
+</head>
+
+<body class="easyui-layout">
+	<div id="tb_north" region="north" border="false">
+		<div class="top_left"></div>
+		<div class="top_right"><a name="present" href="#"></a>&nbsp;|&nbsp;<a href="https://www.google.com/accounts/ManageAccount" target="_blank">我的账户</a>&nbsp;|&nbsp;<a href="http://code.google.com/appengine/kb/" target="_blank">帮助</a>&nbsp;|&nbsp;<a href="https://www.google.com/accounts/Logout">退出</a></div>
+	</div>
+	<div id="tb_west" region="west" split="true">
+		<div class="easyui-accordion" border="false" fit="true">
+			<div class="tb_menu" title="出售商品">
+				<li><a href="onsale_report" class="easyui-linkbutton" plain="true">商品时间分布</a></li>
+				<li><a href="onsale_list" class="easyui-linkbutton" plain="true">出售中的商品</a></li>
+			</div>
+			<div class="tb_menu" title="库存商品">
+				<li><a href="instock_regular" class="easyui-linkbutton" plain="true">定时上架商品</a></li>
+				<li><a href="instock_shelved" class="easyui-linkbutton" plain="true">仓库中的商品</a></li>
+				<li><a href="instock_violation" class="easyui-linkbutton" plain="true">违规下架商品</a></li>
+				<li><a href="instock_findimg" class="easyui-linkbutton" plain="true">商品图片整理</a></li>
+			</div>
+		</div>
+	</div>
+	<div id="tb_center" region="center" title="{{SYSTEM_NAME}}"></div>
+</body>
+</html>

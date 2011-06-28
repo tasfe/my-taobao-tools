@@ -1,0 +1,27 @@
+@charset "utf-8";
+#tb_north {
+	height: 35px;
+	padding: 10px;
+	background-color: #D2E0F2;
+}
+#tb_west {
+	width: 135px;
+}
+#tb_center,.tb_menu {
+	padding: 10px;
+}
+.tb_menu li {
+	padding: 5px 10px;
+	list-style: none outside;
+}
+.top_left {
+	width: 140px;
+	height: 35px;
+	background-image: url(logo.png);
+	float: left;
+}
+.top_right {
+	width: 50%;
+	text-align: right;
+	float: right;
+}

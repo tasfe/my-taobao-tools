@@ -1,0 +1,50 @@
+<script type="text/javascript">
+var reg,domain,urlpath;
+$(document).ready(function(){
+	$('input[name=findimg]').click(function(){
+		var url=$('input[name=url]').val();
+		reg=/http:\/\/[^\/]*/;
+		domain=reg.exec(url);
+		reg=/http:\/\/.*\//;
+		urlpath=reg.exec(url);
+		$('#findimg').empty();
+		if(!domain||!urlpath){
+			$('#findimg').append('图片分析失败，输入的网址错误！<br>');
+		}else{
+			$('input[name=findimg]').attr('disabled','disabled');
+			$('input[name=findimg]').attr('value','分析中');
+			$.get('/ajax/findimg',{url:url},function(data){
+				if($.isArray(data)){
+					$.each(data,function(k,v){
+						if(v=='failure'){
+							$('#findimg').append('图片分析失败，暂时无法连接该网址！<br>');
+						}else{
+							if(v.substring(0,1)!='/'&&v.substring(0,7)!='http://'){
+								$('#findimg').append('&lt;DIV style="WIDTH: 660px; OVERFLOW: hidden"&gt;&lt;IMG style="WIDTH: 660px" src="'+urlpath+v+'"&gt;&lt;/DIV&gt;<br>');
+							}else if(v.substring(0,1)=='/'&&v.substring(0,7)!='http://'){
+								$('#findimg').append('&lt;DIV style="WIDTH: 660px; OVERFLOW: hidden"&gt;&lt;IMG style="WIDTH: 660px" src="'+domain+v+'"&gt;&lt;/DIV&gt;<br>');
+							}else{
+								$('#findimg').append('&lt;DIV style="WIDTH: 660px; OVERFLOW: hidden"&gt;&lt;IMG style="WIDTH: 660px" src="'+v+'"&gt;&lt;/DIV&gt;<br>');
+							}
+						}
+					});
+				}
+				$('input[name=findimg]').attr('value','分析');
+				$('input[name=findimg]').removeAttr('disabled');
+			},'json');
+		}
+	});
+});
+</script>
+<table width="80%">
+<thead>
+  <tr>
+	<td><input name="url" type="text" value="http://" size="100" maxlength="100" />&nbsp;&nbsp;<input name="findimg" type="button" class="tb-button" value="分析" /></td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+	<td id="findimg">请正确填写要分析的网址！</td>
+  </tr>
+</tbody>
+</table>

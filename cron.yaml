@@ -1,0 +1,26 @@
+cron:
+
+- description: Refresh showcase
+  url: /cron/showcase
+  schedule: every 10 minutes
+  timezone: Asia/Shanghai
+
+- description: Refresh showplat
+  url: /cron/showplat
+  schedule: every 10 minutes
+  timezone: Asia/Shanghai
+
+- description: Update product_onsale cache
+  url: /cron/items_onsale
+  schedule: every 10 minutes
+  timezone: Asia/Shanghai
+
+- description: Update product_instock cache
+  url: /cron/items_instock
+  schedule: every 10 minutes
+  timezone: Asia/Shanghai
+
+- description: Update shop cache
+  url: /cron/shop
+  schedule: every 1 hours
+  timezone: Asia/Shanghai
