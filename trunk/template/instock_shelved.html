@@ -1,0 +1,21 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#DataGrid').datagrid({
+		url:'/instock/shelved',
+		title:'仓库中的商品',
+		fit:true,
+		fitColumns:true,
+		striped:true,
+		pagination:true,
+		pageSize:20,
+		columns:[[
+			{field:'outer_id',title:'货号',width:5},
+			{field:'title',title:'商品名称',width:20},
+			{field:'price',title:'价格',width:5},
+			{field:'num',title:'库存',width:5},
+			{field:'delist_time',title:'重置时间',width:10}
+		]]
+	});
+});
+</script>
+<table id="DataGrid"></table>

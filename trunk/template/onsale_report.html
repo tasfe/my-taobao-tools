@@ -1,0 +1,33 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$.getJSON('/onsale/report?action=error',function(data){
+		var error='';
+		if((data['total'])>0){
+			$.each(data['rows'],function(k,v){
+				error+='<li><a href="http://item.taobao.com/item.htm?id='+v+'" target="_blank">http://item.taobao.com/item.htm?id='+v+'</a></li>';
+			});
+			$.messager.alert('上架时间错误',error);
+		};
+	});
+	$('#DataGrid').datagrid({
+		url:'/onsale/report',
+		title:'商品时间分布',
+		fit:true,
+		fitColumns:true,
+		striped:true,
+		rownumbers:true,
+		showFooter:true,
+		columns:[[
+			{field:'Time',title:'时间',width:15},
+			{field:'Sun',title:'周日',width:10},
+			{field:'Mon',title:'周一',width:10},
+			{field:'Tus',title:'周二',width:10},
+			{field:'Wen',title:'周三',width:10},
+			{field:'Thur',title:'周四',width:10},
+			{field:'Fri',title:'周五',width:10},
+			{field:'Sat',title:'周六',width:10}
+		]]
+	});
+});
+</script>
+<table id="DataGrid"></table>
