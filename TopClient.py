@@ -22,25 +22,31 @@ class TopClient(object):
         return md5.new(self.secretKey+''.join(['%s%s'%(k,v) for k,v in sorted(args.items())])+self.secretKey).hexdigest().upper()
 
     def execute(self,args):
-        sysParams={
-            'app_key':self.appkey,
-            'format':self.format,
-            'sign_method':self.signMethod,
-            'timestamp':time.strftime('%Y-%m-%d %X',time.localtime()),
-            'v':self.apiVersion
-        }
-        #组装参数
-        sysParams.update(args)
-        sysParams['sign']=self.generateSign(sysParams)
-        #发送查询
-        response=urllib2.urlopen(urllib2.Request(self.gatewayUrl,urllib.urlencode(sysParams))).read()
-        #返回处理
-        response=simplejson.loads(response.decode('UTF-8'))
-        if response.has_key('error_response'):
-            sys.exit("Error%s: %s"%(response['error_response']['code'],response['error_response']['msg']))
-        else:
-            response=response.values().pop()
-        return response
+        try:
+            sysParams={
+                'app_key':self.appkey,
+                'format':self.format,
+                'sign_method':self.signMethod,
+                'timestamp':time.strftime('%Y-%m-%d %X',time.localtime()),
+                'v':self.apiVersion
+            }
+            #组装参数
+            sysParams.update(args)
+            sysParams['sign']=self.generateSign(sysParams)
+            #发送查询
+            response=urllib2.urlopen(urllib2.Request(self.gatewayUrl,urllib.urlencode(sysParams))).read()
+            #返回处理
+            response=simplejson.loads(response.decode('UTF-8'),strict=False)
+            if response.has_key('error_response'):
+                sys.exit("Error%s: %s"%(response['error_response']['code'],response['error_response']['msg']))
+            else:
+                response=response.values().pop()
+            return response
+        except:
+            #异常处理
+            time.sleep(5)
+            return self.execute(args)
+            
 
 if __name__=='__main__':
     pass
