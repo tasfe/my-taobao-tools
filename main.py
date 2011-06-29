@@ -15,16 +15,10 @@ class HtmlHandler(handler):
             self.template_values=CONFIG
             self.render("%s.html"%(self.request.get('file')))
 
-class TestHandler(handler):
-    def get(self):
-        print ''
-        print items.showplat()
-
 def main():
     application=webapp.WSGIApplication([
                                         (r'/*',MainHandler),
                                         (r'/html',HtmlHandler),
-                                        (r'/test',TestHandler),
                                         ],debug=CONFIG['DEBUG'])
     util.run_wsgi_app(application)
 
