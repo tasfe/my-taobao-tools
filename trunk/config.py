@@ -13,12 +13,11 @@ from TopClient import *
 memcache=Client()
 
 CONFIG={
-'DEBUG':True,
-'SYSTEM_NAME':u'测试系统',
-'SYSTEM_VER':u'11.5',
-'SYSTEM_USER':users.get_current_user(),
-'SHOP_LIST':({'appkey':'111','secretKey':'111'},{'appkey':'222','secretKey':'222'})
+    'DEBUG':True,
+    'SYSTEM_NAME':u'淘宝店铺自动助理',
+    'SYSTEM_VER':u'11.7',
+    'SYSTEM_USER':users.get_current_user(),
+    'SHOP_LIST':({'appkey':'111','secretKey':'222'},{'appkey':'111','secretKey':'222'})
 }
-
 if __name__=='__main__':
     pass
