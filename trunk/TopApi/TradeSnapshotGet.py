@@ -1,5 +1,6 @@
 class TradeSnapshotGet(object):
-    apiParas={'method':'taobao.trade.snapshot.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.snapshot.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

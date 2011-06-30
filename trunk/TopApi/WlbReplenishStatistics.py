@@ -1,5 +1,6 @@
 class WlbReplenishStatistics(object):
-    apiParas={'method':'taobao.wlb.replenish.statistics'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.replenish.statistics'}
     def setItemCode(self,itemCode):
         self.apiParas['item_code']=itemCode
     def getItemCode(self):

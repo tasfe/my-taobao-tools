@@ -1,5 +1,6 @@
 class WlbSubscriptionQuery(object):
-    apiParas={'method':'taobao.wlb.subscription.query'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.subscription.query'}
     def setPageNo(self,pageNo):
         self.apiParas['page_no']=pageNo
     def getPageNo(self):

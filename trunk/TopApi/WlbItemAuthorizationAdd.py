@@ -1,5 +1,6 @@
 class WlbItemAuthorizationAdd(object):
-    apiParas={'method':'taobao.wlb.item.authorization.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.authorization.add'}
     def setAuthorizeEndTime(self,authorizeEndTime):
         self.apiParas['authorize_end_time']=authorizeEndTime
     def getAuthorizeEndTime(self):

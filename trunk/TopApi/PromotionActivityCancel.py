@@ -1,5 +1,6 @@
 class PromotionActivityCancel(object):
-    apiParas={'method':'taobao.promotion.activity.cancel'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.activity.cancel'}
     def setActivityId(self,activityId):
         self.apiParas['activity_id']=activityId
     def getActivityId(self):

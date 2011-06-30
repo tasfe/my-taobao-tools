@@ -1,5 +1,6 @@
 class TaohuaItemsSearch(object):
-    apiParas={'method':'taobao.taohua.items.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.items.search'}
     def setBeginSize(self,beginSize):
         self.apiParas['begin_size']=beginSize
     def getBeginSize(self):

@@ -1,5 +1,6 @@
 class LogisticsAddressRemove(object):
-    apiParas={'method':'taobao.logistics.address.remove'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.address.remove'}
     def setContactId(self,contactId):
         self.apiParas['contact_id']=contactId
     def getContactId(self):

@@ -1,5 +1,6 @@
 class TradeAmountGet(object):
-    apiParas={'method':'taobao.trade.amount.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.amount.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

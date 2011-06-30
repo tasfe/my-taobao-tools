@@ -1,5 +1,6 @@
 class FenxiaoDiscountUpdate(object):
-    apiParas={'method':'taobao.fenxiao.discount.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.fenxiao.discount.update'}
     def setDetailIds(self,detailIds):
         self.apiParas['detail_ids']=detailIds
     def getDetailIds(self):

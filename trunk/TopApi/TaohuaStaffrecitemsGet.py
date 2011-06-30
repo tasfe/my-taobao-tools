@@ -1,5 +1,6 @@
 class TaohuaStaffrecitemsGet(object):
-    apiParas={'method':'taobao.taohua.staffrecitems.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.staffrecitems.get'}
     def setItemType(self,itemType):
         self.apiParas['item_type']=itemType
     def getItemType(self):

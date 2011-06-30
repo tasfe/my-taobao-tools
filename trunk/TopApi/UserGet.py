@@ -1,5 +1,6 @@
 class UserGet(object):
-    apiParas={'method':'taobao.user.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.user.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

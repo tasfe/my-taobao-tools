@@ -1,5 +1,6 @@
 class FavoriteSearch(object):
-    apiParas={'method':'taobao.favorite.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.favorite.search'}
     def setCollectType(self,collectType):
         self.apiParas['collect_type']=collectType
     def getCollectType(self):

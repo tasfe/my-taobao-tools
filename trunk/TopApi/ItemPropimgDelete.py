@@ -1,5 +1,6 @@
 class ItemPropimgDelete(object):
-    apiParas={'method':'taobao.item.propimg.delete'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.propimg.delete'}
     def setId(self,id):
         self.apiParas['id']=id
     def getId(self):

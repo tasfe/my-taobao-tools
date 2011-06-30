@@ -1,5 +1,6 @@
 class LogisticsTraceSearch(object):
-    apiParas={'method':'taobao.logistics.trace.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.trace.search'}
     def setSellerNick(self,sellerNick):
         self.apiParas['seller_nick']=sellerNick
     def getSellerNick(self):

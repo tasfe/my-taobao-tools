@@ -1,5 +1,6 @@
 class WlbItemConsignmentDelete(object):
-    apiParas={'method':'taobao.wlb.item.consignment.delete'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.consignment.delete'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

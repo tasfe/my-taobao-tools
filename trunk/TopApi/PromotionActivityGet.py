@@ -1,5 +1,6 @@
 class PromotionActivityGet(object):
-    apiParas={'method':'taobao.promotion.activity.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.activity.get'}
     def setActivityId(self,activityId):
         self.apiParas['activity_id']=activityId
     def getActivityId(self):

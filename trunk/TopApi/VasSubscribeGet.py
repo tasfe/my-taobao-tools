@@ -1,5 +1,6 @@
 class VasSubscribeGet(object):
-    apiParas={'method':'taobao.vas.subscribe.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.vas.subscribe.get'}
     def setArticleCode(self,articleCode):
         self.apiParas['article_code']=articleCode
     def getArticleCode(self):

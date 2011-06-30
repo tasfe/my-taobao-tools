@@ -1,5 +1,6 @@
 class SellercatsListGet(object):
-    apiParas={'method':'taobao.sellercats.list.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.sellercats.list.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

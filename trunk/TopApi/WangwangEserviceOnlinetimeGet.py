@@ -1,5 +1,6 @@
 class WangwangEserviceOnlinetimeGet(object):
-    apiParas={'method':'taobao.wangwang.eservice.onlinetime.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wangwang.eservice.onlinetime.get'}
     def setEndDate(self,endDate):
         self.apiParas['end_date']=endDate
     def getEndDate(self):

@@ -1,5 +1,6 @@
 class ItemRecommendAdd(object):
-    apiParas={'method':'taobao.item.recommend.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.recommend.add'}
     def setNumIid(self,numIid):
         self.apiParas['num_iid']=numIid
     def getNumIid(self):

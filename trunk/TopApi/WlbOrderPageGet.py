@@ -1,5 +1,6 @@
 class WlbOrderPageGet(object):
-    apiParas={'method':'taobao.wlb.order.page.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.order.page.get'}
     def setEndTime(self,endTime):
         self.apiParas['end_time']=endTime
     def getEndTime(self):

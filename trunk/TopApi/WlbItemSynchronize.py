@@ -1,5 +1,6 @@
 class WlbItemSynchronize(object):
-    apiParas={'method':'taobao.wlb.item.synchronize'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.synchronize'}
     def setExtEntityId(self,extEntityId):
         self.apiParas['ext_entity_id']=extEntityId
     def getExtEntityId(self):

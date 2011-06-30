@@ -1,5 +1,6 @@
 class WlbInventorylogQuery(object):
-    apiParas={'method':'taobao.wlb.inventorylog.query'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.inventorylog.query'}
     def setGmtEnd(self,gmtEnd):
         self.apiParas['gmt_end']=gmtEnd
     def getGmtEnd(self):

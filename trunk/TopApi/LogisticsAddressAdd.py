@@ -1,5 +1,6 @@
 class LogisticsAddressAdd(object):
-    apiParas={'method':'taobao.logistics.address.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.address.add'}
     def setAddr(self,addr):
         self.apiParas['addr']=addr
     def getAddr(self):

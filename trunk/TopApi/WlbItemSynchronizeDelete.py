@@ -1,5 +1,6 @@
 class WlbItemSynchronizeDelete(object):
-    apiParas={'method':'taobao.wlb.item.synchronize.delete'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.synchronize.delete'}
     def setExtEntityId(self,extEntityId):
         self.apiParas['ext_entity_id']=extEntityId
     def getExtEntityId(self):

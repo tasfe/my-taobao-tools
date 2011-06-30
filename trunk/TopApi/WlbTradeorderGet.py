@@ -1,5 +1,6 @@
 class WlbTradeorderGet(object):
-    apiParas={'method':'taobao.wlb.tradeorder.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.tradeorder.get'}
     def setTradeId(self,tradeId):
         self.apiParas['trade_id']=tradeId
     def getTradeId(self):

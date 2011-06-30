@@ -1,5 +1,6 @@
 class ShopRemainshowcaseGet(object):
-    apiParas={'method':'taobao.shop.remainshowcase.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.shop.remainshowcase.get'}
     def getApiMethodName(self):
         return self.apiParas['method']
     def getApiParas(self):

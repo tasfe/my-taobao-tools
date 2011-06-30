@@ -1,5 +1,6 @@
 class WlbItemAuthorizationDelete(object):
-    apiParas={'method':'taobao.wlb.item.authorization.delete'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.authorization.delete'}
     def setAuthorizeId(self,authorizeId):
         self.apiParas['authorize_id']=authorizeId
     def getAuthorizeId(self):

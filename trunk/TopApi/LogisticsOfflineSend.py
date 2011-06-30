@@ -1,5 +1,6 @@
 class LogisticsOfflineSend(object):
-    apiParas={'method':'taobao.logistics.offline.send'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.offline.send'}
     def setCancelId(self,cancelId):
         self.apiParas['cancel_id']=cancelId
     def getCancelId(self):

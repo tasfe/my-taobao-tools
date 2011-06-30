@@ -1,5 +1,6 @@
 class LogisticsAddressSearch(object):
-    apiParas={'method':'taobao.logistics.address.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.address.search'}
     def setRdef(self,rdef):
         self.apiParas['rdef']=rdef
     def getRdef(self):

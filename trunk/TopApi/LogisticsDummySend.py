@@ -1,5 +1,6 @@
 class LogisticsDummySend(object):
-    apiParas={'method':'taobao.logistics.dummy.send'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.dummy.send'}
     def setTid(self,tid):
         self.apiParas['tid']=tid
     def getTid(self):

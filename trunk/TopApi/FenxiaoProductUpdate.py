@@ -1,5 +1,6 @@
 class FenxiaoProductUpdate(object):
-    apiParas={'method':'taobao.fenxiao.product.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.fenxiao.product.update'}
     def setAlarmNumber(self,alarmNumber):
         self.apiParas['alarm_number']=alarmNumber
     def getAlarmNumber(self):

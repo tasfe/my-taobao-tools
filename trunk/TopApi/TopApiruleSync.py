@@ -1,5 +1,6 @@
 class TopApiruleSync(object):
-    apiParas={'method':'taobao.top.apirule.sync'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.top.apirule.sync'}
     def setApiName(self,apiName):
         self.apiParas['api_name']=apiName
     def getApiName(self):

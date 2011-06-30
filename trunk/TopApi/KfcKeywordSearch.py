@@ -1,5 +1,6 @@
 class KfcKeywordSearch(object):
-    apiParas={'method':'taobao.kfc.keyword.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.kfc.keyword.search'}
     def setApply(self,apply):
         self.apiParas['apply']=apply
     def getApply(self):

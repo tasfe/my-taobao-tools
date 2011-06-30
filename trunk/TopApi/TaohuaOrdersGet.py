@@ -1,5 +1,6 @@
 class TaohuaOrdersGet(object):
-    apiParas={'method':'taobao.taohua.orders.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.orders.get'}
     def setEndDate(self,endDate):
         self.apiParas['end_date']=endDate
     def getEndDate(self):

@@ -1,5 +1,6 @@
 class TaobaokeShopsConvert(object):
-    apiParas={'method':'taobao.taobaoke.shops.convert'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.shops.convert'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

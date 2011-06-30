@@ -1,5 +1,6 @@
 class TraderatesGet(object):
-    apiParas={'method':'taobao.traderates.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.traderates.get'}
     def setEndDate(self,endDate):
         self.apiParas['end_date']=endDate
     def getEndDate(self):

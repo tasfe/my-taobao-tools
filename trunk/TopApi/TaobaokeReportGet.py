@@ -1,5 +1,6 @@
 class TaobaokeReportGet(object):
-    apiParas={'method':'taobao.taobaoke.report.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.report.get'}
     def setDate(self,date):
         self.apiParas['date']=date
     def getDate(self):

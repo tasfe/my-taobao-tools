@@ -1,5 +1,6 @@
 class TopatsTradesFullinfoGet(object):
-    apiParas={'method':'taobao.topats.trades.fullinfo.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.topats.trades.fullinfo.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

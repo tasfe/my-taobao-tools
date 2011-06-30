@@ -1,5 +1,6 @@
 class ItemcatsAuthorizeGet(object):
-    apiParas={'method':'taobao.itemcats.authorize.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.itemcats.authorize.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

@@ -1,5 +1,6 @@
 class SellercatsListAdd(object):
-    apiParas={'method':'taobao.sellercats.list.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.sellercats.list.add'}
     def setName(self,name):
         self.apiParas['name']=name
     def getName(self):

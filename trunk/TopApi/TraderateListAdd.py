@@ -1,5 +1,6 @@
 class TraderateListAdd(object):
-    apiParas={'method':'taobao.traderate.list.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.traderate.list.add'}
     def setAnony(self,anony):
         self.apiParas['anony']=anony
     def getAnony(self):

@@ -1,5 +1,6 @@
 class WlbItemQuery(object):
-    apiParas={'method':'taobao.wlb.item.query'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.query'}
     def setIsSku(self,isSku):
         self.apiParas['is_sku']=isSku
     def getIsSku(self):

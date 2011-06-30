@@ -1,5 +1,6 @@
 class TaobaokeToolRelation(object):
-    apiParas={'method':'taobao.taobaoke.tool.relation'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.tool.relation'}
     def setPubid(self,pubid):
         self.apiParas['pubid']=pubid
     def getPubid(self):

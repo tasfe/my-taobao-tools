@@ -1,5 +1,6 @@
 class TaohuaItemcommentAdd(object):
-    apiParas={'method':'taobao.taohua.itemcomment.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.itemcomment.add'}
     def setComment(self,comment):
         self.apiParas['comment']=comment
     def getComment(self):

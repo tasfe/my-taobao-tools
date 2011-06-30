@@ -1,5 +1,6 @@
 class WangwangEserviceChatpeersGet(object):
-    apiParas={'method':'taobao.wangwang.eservice.chatpeers.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wangwang.eservice.chatpeers.get'}
     def setCharset(self,charset):
         self.apiParas['charset']=charset
     def getCharset(self):

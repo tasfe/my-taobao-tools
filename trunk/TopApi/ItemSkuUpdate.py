@@ -1,5 +1,6 @@
 class ItemSkuUpdate(object):
-    apiParas={'method':'taobao.item.sku.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.sku.update'}
     def setItemPrice(self,itemPrice):
         self.apiParas['item_price']=itemPrice
     def getItemPrice(self):

@@ -1,5 +1,6 @@
 class PictureGet(object):
-    apiParas={'method':'taobao.picture.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.picture.get'}
     def setDeleted(self,deleted):
         self.apiParas['deleted']=deleted
     def getDeleted(self):

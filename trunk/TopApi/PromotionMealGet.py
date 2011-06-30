@@ -1,5 +1,6 @@
 class PromotionMealGet(object):
-    apiParas={'method':'taobao.promotion.meal.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.meal.get'}
     def setMealId(self,mealId):
         self.apiParas['meal_id']=mealId
     def getMealId(self):

@@ -1,5 +1,6 @@
 class SkusCustomGet(object):
-    apiParas={'method':'taobao.skus.custom.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.skus.custom.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

@@ -1,5 +1,6 @@
 class PostageUpdate(object):
-    apiParas={'method':'taobao.postage.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.postage.update'}
     def setEmsIncrease(self,emsIncrease):
         self.apiParas['ems_increase']=emsIncrease
     def getEmsIncrease(self):

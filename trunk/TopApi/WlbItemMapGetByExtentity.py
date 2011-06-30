@@ -1,5 +1,6 @@
 class WlbItemMapGetByExtentity(object):
-    apiParas={'method':'taobao.wlb.item.map.get.by.extentity'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.map.get.by.extentity'}
     def setExtEntityId(self,extEntityId):
         self.apiParas['ext_entity_id']=extEntityId
     def getExtEntityId(self):

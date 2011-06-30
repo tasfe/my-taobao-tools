@@ -1,5 +1,6 @@
 class TopatsTradeAccountreportGet(object):
-    apiParas={'method':'taobao.topats.trade.accountreport.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.topats.trade.accountreport.get'}
     def setEndCreated(self,endCreated):
         self.apiParas['end_created']=endCreated
     def getEndCreated(self):

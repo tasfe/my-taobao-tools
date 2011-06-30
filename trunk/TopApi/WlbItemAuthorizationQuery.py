@@ -1,5 +1,6 @@
 class WlbItemAuthorizationQuery(object):
-    apiParas={'method':'taobao.wlb.item.authorization.query'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.authorization.query'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

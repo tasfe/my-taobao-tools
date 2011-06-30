@@ -1,5 +1,6 @@
 class ItemUpdateListing(object):
-    apiParas={'method':'taobao.item.update.listing'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.update.listing'}
     def setNum(self,num):
         self.apiParas['num']=num
     def getNum(self):

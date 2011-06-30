@@ -1,5 +1,6 @@
 class PromotionCouponAdd(object):
-    apiParas={'method':'taobao.promotion.coupon.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.coupon.add'}
     def setCondition(self,condition):
         self.apiParas['condition']=condition
     def getCondition(self):

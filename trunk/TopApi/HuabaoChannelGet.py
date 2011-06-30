@@ -1,5 +1,6 @@
 class HuabaoChannelGet(object):
-    apiParas={'method':'taobao.huabao.channel.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.huabao.channel.get'}
     def setChannelId(self,channelId):
         self.apiParas['channel_id']=channelId
     def getChannelId(self):

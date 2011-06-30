@@ -1,5 +1,6 @@
 class ItempropvaluesGet(object):
-    apiParas={'method':'taobao.itempropvalues.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.itempropvalues.get'}
     def setCid(self,cid):
         self.apiParas['cid']=cid
     def getCid(self):

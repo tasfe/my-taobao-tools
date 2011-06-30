@@ -1,5 +1,6 @@
 class LogisticsCompaniesGet(object):
-    apiParas={'method':'taobao.logistics.companies.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.companies.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

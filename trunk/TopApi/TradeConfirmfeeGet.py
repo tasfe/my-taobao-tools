@@ -1,5 +1,6 @@
 class TradeConfirmfeeGet(object):
-    apiParas={'method':'taobao.trade.confirmfee.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.confirmfee.get'}
     def setIsDetail(self,isDetail):
         self.apiParas['is_detail']=isDetail
     def getIsDetail(self):
