@@ -1,5 +1,6 @@
 class WlbNotifyMessagePageGet(object):
-    apiParas={'method':'taobao.wlb.notify.message.page.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.notify.message.page.get'}
     def setEndDate(self,endDate):
         self.apiParas['end_date']=endDate
     def getEndDate(self):

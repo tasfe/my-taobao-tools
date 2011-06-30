@@ -1,5 +1,6 @@
 class WlbWlborderGet(object):
-    apiParas={'method':'taobao.wlb.wlborder.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.wlborder.get'}
     def setWlbOrderCode(self,wlbOrderCode):
         self.apiParas['wlb_order_code']=wlbOrderCode
     def getWlbOrderCode(self):

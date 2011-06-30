@@ -1,5 +1,6 @@
 class FenxiaoProductsGet(object):
-    apiParas={'method':'taobao.fenxiao.products.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.fenxiao.products.get'}
     def setEndModified(self,endModified):
         self.apiParas['end_modified']=endModified
     def getEndModified(self):

@@ -1,5 +1,6 @@
 class WlbItemCombinationCreate(object):
-    apiParas={'method':'taobao.wlb.item.combination.create'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.combination.create'}
     def setDestItemList(self,destItemList):
         self.apiParas['dest_item_list']=destItemList
     def getDestItemList(self):

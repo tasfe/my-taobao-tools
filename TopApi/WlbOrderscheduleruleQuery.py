@@ -1,5 +1,6 @@
 class WlbOrderscheduleruleQuery(object):
-    apiParas={'method':'taobao.wlb.orderschedulerule.query'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.orderschedulerule.query'}
     def setPageNo(self,pageNo):
         self.apiParas['page_no']=pageNo
     def getPageNo(self):

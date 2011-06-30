@@ -1,5 +1,6 @@
 class FenxiaoDistributorsGet(object):
-    apiParas={'method':'taobao.fenxiao.distributors.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.fenxiao.distributors.get'}
     def setNicks(self,nicks):
         self.apiParas['nicks']=nicks
     def getNicks(self):

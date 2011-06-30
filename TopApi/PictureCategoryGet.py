@@ -1,5 +1,6 @@
 class PictureCategoryGet(object):
-    apiParas={'method':'taobao.picture.category.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.picture.category.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

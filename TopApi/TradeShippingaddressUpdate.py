@@ -1,5 +1,6 @@
 class TradeShippingaddressUpdate(object):
-    apiParas={'method':'taobao.trade.shippingaddress.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.shippingaddress.update'}
     def setReceiverAddress(self,receiverAddress):
         self.apiParas['receiver_address']=receiverAddress
     def getReceiverAddress(self):

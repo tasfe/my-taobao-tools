@@ -1,5 +1,6 @@
 class RefundRefuse(object):
-    apiParas={'method':'taobao.refund.refuse'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.refund.refuse'}
     def setOid(self,oid):
         self.apiParas['oid']=oid
     def getOid(self):

@@ -1,5 +1,6 @@
 class LogisticsOrdersGet(object):
-    apiParas={'method':'taobao.logistics.orders.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.orders.get'}
     def setBuyerNick(self,buyerNick):
         self.apiParas['buyer_nick']=buyerNick
     def getBuyerNick(self):

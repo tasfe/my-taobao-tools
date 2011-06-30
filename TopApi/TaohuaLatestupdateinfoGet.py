@@ -1,5 +1,6 @@
 class TaohuaLatestupdateinfoGet(object):
-    apiParas={'method':'taobao.taohua.latestupdateinfo.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.latestupdateinfo.get'}
     def getApiMethodName(self):
         return self.apiParas['method']
     def getApiParas(self):

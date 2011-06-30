@@ -1,5 +1,6 @@
 class TaobaokeCaturlGet(object):
-    apiParas={'method':'taobao.taobaoke.caturl.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.caturl.get'}
     def setCid(self,cid):
         self.apiParas['cid']=cid
     def getCid(self):

@@ -1,5 +1,6 @@
 class WlbInventoryDetailGet(object):
-    apiParas={'method':'taobao.wlb.inventory.detail.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.inventory.detail.get'}
     def setInventoryTypeList(self,inventoryTypeList):
         self.apiParas['inventory_type_list']=inventoryTypeList
     def getInventoryTypeList(self):

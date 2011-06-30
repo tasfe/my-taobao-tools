@@ -1,5 +1,6 @@
 class WlbOrderscheduleruleDelete(object):
-    apiParas={'method':'taobao.wlb.orderschedulerule.delete'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.orderschedulerule.delete'}
     def setId(self,id):
         self.apiParas['id']=id
     def getId(self):

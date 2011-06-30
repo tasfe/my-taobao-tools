@@ -1,5 +1,6 @@
 class PostageGet(object):
-    apiParas={'method':'taobao.postage.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.postage.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

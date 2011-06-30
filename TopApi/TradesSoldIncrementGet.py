@@ -1,5 +1,6 @@
 class TradesSoldIncrementGet(object):
-    apiParas={'method':'taobao.trades.sold.increment.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trades.sold.increment.get'}
     def setEndModified(self,endModified):
         self.apiParas['end_modified']=endModified
     def getEndModified(self):

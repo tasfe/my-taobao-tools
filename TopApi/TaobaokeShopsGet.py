@@ -1,5 +1,6 @@
 class TaobaokeShopsGet(object):
-    apiParas={'method':'taobao.taobaoke.shops.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.shops.get'}
     def setCid(self,cid):
         self.apiParas['cid']=cid
     def getCid(self):

@@ -1,5 +1,6 @@
 class TradesBoughtGet(object):
-    apiParas={'method':'taobao.trades.bought.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trades.bought.get'}
     def setEndCreated(self,endCreated):
         self.apiParas['end_created']=endCreated
     def getEndCreated(self):

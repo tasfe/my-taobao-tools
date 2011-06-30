@@ -1,5 +1,6 @@
 class TopatsDeliverySend(object):
-    apiParas={'method':'taobao.topats.delivery.send'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.topats.delivery.send'}
     def setCompanyCodes(self,companyCodes):
         self.apiParas['company_codes']=companyCodes
     def getCompanyCodes(self):

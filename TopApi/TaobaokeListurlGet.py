@@ -1,5 +1,6 @@
 class TaobaokeListurlGet(object):
-    apiParas={'method':'taobao.taobaoke.listurl.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.listurl.get'}
     def setNick(self,nick):
         self.apiParas['nick']=nick
     def getNick(self):

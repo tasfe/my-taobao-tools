@@ -1,5 +1,6 @@
 class FenxiaoCooperationUpdate(object):
-    apiParas={'method':'taobao.fenxiao.cooperation.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.fenxiao.cooperation.update'}
     def setDistributorId(self,distributorId):
         self.apiParas['distributor_id']=distributorId
     def getDistributorId(self):

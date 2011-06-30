@@ -1,5 +1,6 @@
 class ItemsSearch(object):
-    apiParas={'method':'taobao.items.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.items.search'}
     def setAuctionFlag(self,auctionFlag):
         self.apiParas['auction_flag']=auctionFlag
     def getAuctionFlag(self):

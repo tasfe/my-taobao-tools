@@ -1,5 +1,6 @@
 class WangwangEserviceReceivenumGet(object):
-    apiParas={'method':'taobao.wangwang.eservice.receivenum.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wangwang.eservice.receivenum.get'}
     def setEndDate(self,endDate):
         self.apiParas['end_date']=endDate
     def getEndDate(self):

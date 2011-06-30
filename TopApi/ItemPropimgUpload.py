@@ -1,5 +1,6 @@
 class ItemPropimgUpload(object):
-    apiParas={'method':'taobao.item.propimg.upload'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.propimg.upload'}
     def setId(self,id):
         self.apiParas['id']=id
     def getId(self):

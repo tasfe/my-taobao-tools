@@ -1,5 +1,6 @@
 class ItemQuantityUpdate(object):
-    apiParas={'method':'taobao.item.quantity.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.quantity.update'}
     def setNumIid(self,numIid):
         self.apiParas['num_iid']=numIid
     def getNumIid(self):

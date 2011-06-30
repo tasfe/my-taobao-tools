@@ -1,5 +1,6 @@
 class IncrementItemsGet(object):
-    apiParas={'method':'taobao.increment.items.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.increment.items.get'}
     def setEndModified(self,endModified):
         self.apiParas['end_modified']=endModified
     def getEndModified(self):

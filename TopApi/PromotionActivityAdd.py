@@ -1,5 +1,6 @@
 class PromotionActivityAdd(object):
-    apiParas={'method':'taobao.promotion.activity.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.activity.add'}
     def setCouponCount(self,couponCount):
         self.apiParas['coupon_count']=couponCount
     def getCouponCount(self):

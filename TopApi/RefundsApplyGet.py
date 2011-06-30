@@ -1,5 +1,6 @@
 class RefundsApplyGet(object):
-    apiParas={'method':'taobao.refunds.apply.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.refunds.apply.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

@@ -1,5 +1,6 @@
 class WlbItemGet(object):
-    apiParas={'method':'taobao.wlb.item.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.get'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

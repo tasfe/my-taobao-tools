@@ -1,5 +1,6 @@
 class SellercatsListUpdate(object):
-    apiParas={'method':'taobao.sellercats.list.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.sellercats.list.update'}
     def setCid(self,cid):
         self.apiParas['cid']=cid
     def getCid(self):

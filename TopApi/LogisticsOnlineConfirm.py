@@ -1,5 +1,6 @@
 class LogisticsOnlineConfirm(object):
-    apiParas={'method':'taobao.logistics.online.confirm'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.online.confirm'}
     def setOutSid(self,outSid):
         self.apiParas['out_sid']=outSid
     def getOutSid(self):

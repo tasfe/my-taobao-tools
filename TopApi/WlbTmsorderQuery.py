@@ -1,5 +1,6 @@
 class WlbTmsorderQuery(object):
-    apiParas={'method':'taobao.wlb.tmsorder.query'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.tmsorder.query'}
     def setOrderCode(self,orderCode):
         self.apiParas['order_code']=orderCode
     def getOrderCode(self):

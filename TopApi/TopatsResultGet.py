@@ -1,5 +1,6 @@
 class TopatsResultGet(object):
-    apiParas={'method':'taobao.topats.result.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.topats.result.get'}
     def setTaskId(self,taskId):
         self.apiParas['task_id']=taskId
     def getTaskId(self):

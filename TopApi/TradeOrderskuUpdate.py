@@ -1,5 +1,6 @@
 class TradeOrderskuUpdate(object):
-    apiParas={'method':'taobao.trade.ordersku.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.ordersku.update'}
     def setOid(self,oid):
         self.apiParas['oid']=oid
     def getOid(self):

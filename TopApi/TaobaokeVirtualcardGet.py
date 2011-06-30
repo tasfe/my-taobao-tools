@@ -1,5 +1,6 @@
 class TaobaokeVirtualcardGet(object):
-    apiParas={'method':'taobao.taobaoke.virtualcard.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.virtualcard.get'}
     def setArea(self,area):
         self.apiParas['area']=area
     def getArea(self):

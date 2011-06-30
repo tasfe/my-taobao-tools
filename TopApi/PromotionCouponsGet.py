@@ -1,5 +1,6 @@
 class PromotionCouponsGet(object):
-    apiParas={'method':'taobao.promotion.coupons.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.coupons.get'}
     def setCouponId(self,couponId):
         self.apiParas['coupon_id']=couponId
     def getCouponId(self):

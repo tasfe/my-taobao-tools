@@ -1,5 +1,6 @@
 class ItemUpdate(object):
-    apiParas={'method':'taobao.item.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.update'}
     def setAfterSaleId(self,afterSaleId):
         self.apiParas['after_sale_id']=afterSaleId
     def getAfterSaleId(self):

@@ -1,5 +1,6 @@
 class PromotionMembersGet(object):
-    apiParas={'method':'taobao.promotion.members.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.members.get'}
     def setBuyerNick(self,buyerNick):
         self.apiParas['buyer_nick']=buyerNick
     def getBuyerNick(self):

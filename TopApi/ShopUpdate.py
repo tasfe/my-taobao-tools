@@ -1,5 +1,6 @@
 class ShopUpdate(object):
-    apiParas={'method':'taobao.shop.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.shop.update'}
     def setBulletin(self,bulletin):
         self.apiParas['bulletin']=bulletin
     def getBulletin(self):

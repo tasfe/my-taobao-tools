@@ -1,5 +1,6 @@
 class ProductUpdate(object):
-    apiParas={'method':'taobao.product.update'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.product.update'}
     def setBinds(self,binds):
         self.apiParas['binds']=binds
     def getBinds(self):

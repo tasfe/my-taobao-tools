@@ -1,5 +1,6 @@
 class ItemSkuDelete(object):
-    apiParas={'method':'taobao.item.sku.delete'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.item.sku.delete'}
     def setItemNum(self,itemNum):
         self.apiParas['item_num']=itemNum
     def getItemNum(self):

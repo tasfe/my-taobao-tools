@@ -1,5 +1,6 @@
 class WlbItemConsignmentCreate(object):
-    apiParas={'method':'taobao.wlb.item.consignment.create'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.consignment.create'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

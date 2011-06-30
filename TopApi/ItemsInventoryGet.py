@@ -1,5 +1,6 @@
 class ItemsInventoryGet(object):
-    apiParas={'method':'taobao.items.inventory.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.items.inventory.get'}
     def setBanner(self,banner):
         self.apiParas['banner']=banner
     def getBanner(self):

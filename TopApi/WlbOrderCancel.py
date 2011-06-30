@@ -1,5 +1,6 @@
 class WlbOrderCancel(object):
-    apiParas={'method':'taobao.wlb.order.cancel'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.order.cancel'}
     def setWlbOrderCode(self,wlbOrderCode):
         self.apiParas['wlb_order_code']=wlbOrderCode
     def getWlbOrderCode(self):

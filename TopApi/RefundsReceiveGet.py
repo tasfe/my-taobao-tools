@@ -1,5 +1,6 @@
 class RefundsReceiveGet(object):
-    apiParas={'method':'taobao.refunds.receive.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.refunds.receive.get'}
     def setBuyerNick(self,buyerNick):
         self.apiParas['buyer_nick']=buyerNick
     def getBuyerNick(self):

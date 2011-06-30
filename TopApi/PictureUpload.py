@@ -1,5 +1,6 @@
 class PictureUpload(object):
-    apiParas={'method':'taobao.picture.upload'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.picture.upload'}
     def setImageInputTitle(self,imageInputTitle):
         self.apiParas['image_input_title']=imageInputTitle
     def getImageInputTitle(self):

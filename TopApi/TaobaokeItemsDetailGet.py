@@ -1,5 +1,6 @@
 class TaobaokeItemsDetailGet(object):
-    apiParas={'method':'taobao.taobaoke.items.detail.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taobaoke.items.detail.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

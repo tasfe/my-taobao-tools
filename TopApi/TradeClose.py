@@ -1,5 +1,6 @@
 class TradeClose(object):
-    apiParas={'method':'taobao.trade.close'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.close'}
     def setCloseReason(self,closeReason):
         self.apiParas['close_reason']=closeReason
     def getCloseReason(self):

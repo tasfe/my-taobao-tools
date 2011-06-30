@@ -1,5 +1,6 @@
 class TradeMemoAdd(object):
-    apiParas={'method':'taobao.trade.memo.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.memo.add'}
     def setFlag(self,flag):
         self.apiParas['flag']=flag
     def getFlag(self):

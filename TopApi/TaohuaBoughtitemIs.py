@@ -1,5 +1,6 @@
 class TaohuaBoughtitemIs(object):
-    apiParas={'method':'taobao.taohua.boughtitem.is'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.boughtitem.is'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

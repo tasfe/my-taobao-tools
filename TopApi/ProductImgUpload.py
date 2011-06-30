@@ -1,5 +1,6 @@
 class ProductImgUpload(object):
-    apiParas={'method':'taobao.product.img.upload'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.product.img.upload'}
     def setId(self,id):
         self.apiParas['id']=id
     def getId(self):

@@ -1,5 +1,6 @@
 class WlbOrderCreate(object):
-    apiParas={'method':'taobao.wlb.order.create'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.order.create'}
     def setAlipayNo(self,alipayNo):
         self.apiParas['alipay_no']=alipayNo
     def getAlipayNo(self):

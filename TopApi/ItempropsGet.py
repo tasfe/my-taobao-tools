@@ -1,5 +1,6 @@
 class ItempropsGet(object):
-    apiParas={'method':'taobao.itemprops.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.itemprops.get'}
     def setChildPath(self,childPath):
         self.apiParas['child_path']=childPath
     def getChildPath(self):

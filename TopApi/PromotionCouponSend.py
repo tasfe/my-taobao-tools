@@ -1,5 +1,6 @@
 class PromotionCouponSend(object):
-    apiParas={'method':'taobao.promotion.coupon.send'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.promotion.coupon.send'}
     def setBuyerNick(self,buyerNick):
         self.apiParas['buyer_nick']=buyerNick
     def getBuyerNick(self):

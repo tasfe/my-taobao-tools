@@ -1,5 +1,6 @@
 class ItemsOnsaleGet(object):
-    apiParas={'method':'taobao.items.onsale.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.items.onsale.get'}
     def setCid(self,cid):
         self.apiParas['cid']=cid
     def getCid(self):

@@ -1,5 +1,6 @@
 class AppstoreSubscribeGet(object):
-    apiParas={'method':'taobao.appstore.subscribe.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.appstore.subscribe.get'}
     def setNick(self,nick):
         self.apiParas['nick']=nick
     def getNick(self):

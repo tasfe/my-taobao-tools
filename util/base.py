@@ -33,6 +33,35 @@ class base():
             return self.user()
 
     @classmethod
+    def flag(self):
+        shop_key={}
+        flag=memcache.get('cron_showcase','flag')
+        if type(flag) is not types.ListType or len(flag)==0:
+            flag=list(CONFIG['SHOP_LIST'])
+        shop_key['showcase']=flag.pop(0)
+        memcache.set('cron_showcase',flag,0,0,'flag')
+        flag=memcache.get('cron_showplat','flag')
+        if type(flag) is not types.ListType or len(flag)==0:
+            flag=list(CONFIG['SHOP_LIST'])
+        shop_key['showplat']=flag.pop(0)
+        memcache.set('cron_showplat',flag,0,0,'flag')
+        flag=memcache.get('refresh_onsale','flag')
+        if type(flag) is not types.ListType or len(flag)==0:
+            flag=list(CONFIG['SHOP_LIST'])
+        shop_key['onsale']=flag.pop(0)
+        memcache.set('refresh_onsale',flag,0,0,'flag')
+        flag=memcache.get('refresh_instock','flag')
+        if type(flag) is not types.ListType or len(flag)==0:
+            flag=list(CONFIG['SHOP_LIST'])
+        shop_key['instock']=flag.pop(0)
+        memcache.set('refresh_instock',flag,0,0,'flag')
+        return shop_key
+
+    @classmethod
+    def getkey(self,appkey):
+        return filter(lambda x:x['appkey']==appkey,CONFIG['SHOP_LIST'])[0]
+
+    @classmethod
     def change(self,appkey):
         memcache.set('appkey',filter(lambda x:x['appkey']==appkey,CONFIG['SHOP_LIST'])[0]['appkey'])
         self.user()
@@ -149,53 +178,30 @@ class items():
             return self.instock_showcase(user)
 
     @classmethod
-    def showplat(self,user=''):
+    def showplat(self,user='',cid=0,num=9):
         user=user or base.user()
-        data=memcache.get('showplat',user)
+        shop_key=base.getkey(user)
+        data=memcache.get('%s%s'%('hotsale_',cid),user)
         if type(data) is types.ListType:
             return data
         else:
-            self.refresh_instock(user)
-            return self.showplat(user)
+            return self.request_hotsale(shop_key,cid,num)
 
     @classmethod
     def refresh_onsale(self,user=''):
         if user:
-            shop_key=filter(lambda x:x['appkey']==user,CONFIG['SHOP_LIST'])[0]
+            shop_key=base.getkey(user)
         else:
-            flag=memcache.get('refresh_onsale','flag')
-            if type(flag) is not types.ListType or len(flag)==0:
-                flag=list(CONFIG['SHOP_LIST'])
-            shop_key=flag.pop(0)
-            memcache.set('refresh_onsale',flag,0,0,'flag')
+            shop_key=base.flag()['onsale']
         self.request_onsale(shop_key)
 
     @classmethod
     def refresh_instock(self,user=''):
         if user:
-            shop_key=filter(lambda x:x['appkey']==user,CONFIG['SHOP_LIST'])[0]
+            shop_key=base.getkey(user)
         else:
-            flag=memcache.get('refresh_instock','flag')
-            if type(flag) is not types.ListType or len(flag)==0:
-                flag=list(CONFIG['SHOP_LIST'])
-            shop_key=flag.pop(0)
-            memcache.set('refresh_instock',flag,0,0,'flag')
+            shop_key=base.flag()['instock']
         self.request_instock(shop_key)
-
-    @classmethod
-    def refresh_flag(self,shop_key):
-        flag=memcache.get('cron_showcase','flag')
-        if type(flag) is not types.ListType or len(flag)==0:
-            flag=[shop_key['appkey']]
-        else:
-            if not shop_key['appkey'] in flag:flag.append(shop_key['appkey'])
-        memcache.set('cron_showcase',flag,0,0,'flag')
-        flag=memcache.get('cron_showplat','flag')
-        if type(flag) is not types.ListType or len(flag)==0:
-            flag=[shop_key['appkey']]
-        else:
-            if not shop_key['appkey'] in flag:flag.append(shop_key['appkey'])
-        memcache.set('cron_showplat',flag,0,0,'flag')
 
     @classmethod
     def request_onsale(self,shop_key):
@@ -282,18 +288,27 @@ class items():
         memcache.set('instock_violation',instock_violation,0,0,shop_key['appkey'])
         memcache.set('instock_shelved',instock_shelved,0,0,shop_key['appkey'])
         memcache.set('instock_showcase',instock_showcase,0,0,shop_key['appkey'])
+
+    @classmethod
+    def request_hotsale(self,shop_key,cid,num):
+        client=TopClient()
+        client.appkey=shop_key['appkey']
+        client.secretKey=shop_key['secretKey']
         showplat=[]
         req=ItemsGet()
         req.setFields(self.item_fields)
         req.setNicks(shop.info(shop_key['appkey'])['user']['nick'])
         req.setOrderBy('volume:desc')
-        req.setPageSize(9)
+        req.setPageSize(num)
+        if cid>0: req.setCid(cid)
         data=client.execute(req.getApiParas())
         if data.has_key('items'):
             for item in data['items']['item']:
                 showplat.append(item)
-        memcache.set('showplat',showplat,0,0,shop_key['appkey'])
-        self.refresh_flag(shop_key)
+        if len(showplat)<num:
+            showplat.extend(self.showplat(shop_key['appkey'],0,num)[0:num-len(showplat)])
+        memcache.set('%s%s'%('hotsale_',cid),showplat,3600,0,shop_key['appkey'])
+        return showplat
 
 
 if __name__=='__main__':

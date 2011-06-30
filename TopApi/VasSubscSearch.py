@@ -1,5 +1,6 @@
 class VasSubscSearch(object):
-    apiParas={'method':'taobao.vas.subsc.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.vas.subsc.search'}
     def setArticleCode(self,articleCode):
         self.apiParas['article_code']=articleCode
     def getArticleCode(self):

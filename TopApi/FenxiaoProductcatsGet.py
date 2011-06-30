@@ -1,5 +1,6 @@
 class FenxiaoProductcatsGet(object):
-    apiParas={'method':'taobao.fenxiao.productcats.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.fenxiao.productcats.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

@@ -1,5 +1,6 @@
 class WangwangEserviceChatlogGet(object):
-    apiParas={'method':'taobao.wangwang.eservice.chatlog.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wangwang.eservice.chatlog.get'}
     def setEndDate(self,endDate):
         self.apiParas['end_date']=endDate
     def getEndDate(self):

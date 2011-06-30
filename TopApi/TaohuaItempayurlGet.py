@@ -1,5 +1,6 @@
 class TaohuaItempayurlGet(object):
-    apiParas={'method':'taobao.taohua.itempayurl.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.itempayurl.get'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

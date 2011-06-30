@@ -1,5 +1,6 @@
 class IncrementSubscribemessageGet(object):
-    apiParas={'method':'taobao.increment.subscribemessage.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.increment.subscribemessage.get'}
     def setFields(self,fields):
         self.apiParas['fields']=fields
     def getFields(self):

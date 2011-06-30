@@ -1,5 +1,6 @@
 class WangwangEserviceGroupmemberGet(object):
-    apiParas={'method':'taobao.wangwang.eservice.groupmember.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wangwang.eservice.groupmember.get'}
     def setManagerId(self,managerId):
         self.apiParas['manager_id']=managerId
     def getManagerId(self):

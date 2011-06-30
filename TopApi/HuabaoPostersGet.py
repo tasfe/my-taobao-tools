@@ -1,5 +1,6 @@
 class HuabaoPostersGet(object):
-    apiParas={'method':'taobao.huabao.posters.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.huabao.posters.get'}
     def setChannelId(self,channelId):
         self.apiParas['channel_id']=channelId
     def getChannelId(self):

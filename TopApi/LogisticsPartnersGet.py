@@ -1,5 +1,6 @@
 class LogisticsPartnersGet(object):
-    apiParas={'method':'taobao.logistics.partners.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.logistics.partners.get'}
     def setGoodsValue(self,goodsValue):
         self.apiParas['goods_value']=goodsValue
     def getGoodsValue(self):

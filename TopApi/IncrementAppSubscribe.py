@@ -1,5 +1,6 @@
 class IncrementAppSubscribe(object):
-    apiParas={'method':'taobao.increment.app.subscribe'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.increment.app.subscribe'}
     def setDuration(self,duration):
         self.apiParas['duration']=duration
     def getDuration(self):

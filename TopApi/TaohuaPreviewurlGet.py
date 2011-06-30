@@ -1,5 +1,6 @@
 class TaohuaPreviewurlGet(object):
-    apiParas={'method':'taobao.taohua.previewurl.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.previewurl.get'}
     def setFileType(self,fileType):
         self.apiParas['file_type']=fileType
     def getFileType(self):

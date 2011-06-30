@@ -1,5 +1,6 @@
 class FenxiaoDiscountsGet(object):
-    apiParas={'method':'taobao.fenxiao.discounts.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.fenxiao.discounts.get'}
     def setDiscountId(self,discountId):
         self.apiParas['discount_id']=discountId
     def getDiscountId(self):

@@ -1,5 +1,6 @@
 class WlbInventorySync(object):
-    apiParas={'method':'taobao.wlb.inventory.sync'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.inventory.sync'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

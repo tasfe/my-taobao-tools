@@ -1,5 +1,6 @@
 class VasOrderSearch(object):
-    apiParas={'method':'taobao.vas.order.search'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.vas.order.search'}
     def setArticleCode(self,articleCode):
         self.apiParas['article_code']=articleCode
     def getArticleCode(self):

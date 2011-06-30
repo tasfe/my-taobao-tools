@@ -1,5 +1,6 @@
 class GuarantyfundsGet(object):
-    apiParas={'method':'taobao.guarantyfunds.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.guarantyfunds.get'}
     def setBeginDate(self,beginDate):
         self.apiParas['begin_date']=beginDate
     def getBeginDate(self):

@@ -1,5 +1,6 @@
 class TaohuaItemcommentsGet(object):
-    apiParas={'method':'taobao.taohua.itemcomments.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.taohua.itemcomments.get'}
     def setItemId(self,itemId):
         self.apiParas['item_id']=itemId
     def getItemId(self):

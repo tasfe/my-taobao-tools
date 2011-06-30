@@ -1,5 +1,6 @@
 class HuabaoPosterGet(object):
-    apiParas={'method':'taobao.huabao.poster.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.huabao.poster.get'}
     def setPosterId(self,posterId):
         self.apiParas['poster_id']=posterId
     def getPosterId(self):

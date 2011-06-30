@@ -1,5 +1,6 @@
 class WlbOrderScheduleRuleAdd(object):
-    apiParas={'method':'taobao.wlb.order.schedule.rule.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.order.schedule.rule.add'}
     def setBackupStoreId(self,backupStoreId):
         self.apiParas['backup_store_id']=backupStoreId
     def getBackupStoreId(self):

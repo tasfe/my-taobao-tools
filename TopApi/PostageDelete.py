@@ -1,5 +1,6 @@
 class PostageDelete(object):
-    apiParas={'method':'taobao.postage.delete'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.postage.delete'}
     def setPostageId(self,postageId):
         self.apiParas['postage_id']=postageId
     def getPostageId(self):

@@ -1,5 +1,6 @@
 class TradeReceivetimeDelay(object):
-    apiParas={'method':'taobao.trade.receivetime.delay'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.trade.receivetime.delay'}
     def setDays(self,days):
         self.apiParas['days']=days
     def getDays(self):

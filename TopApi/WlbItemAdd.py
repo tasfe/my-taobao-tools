@@ -1,5 +1,6 @@
 class WlbItemAdd(object):
-    apiParas={'method':'taobao.wlb.item.add'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.item.add'}
     def setColor(self,color):
         self.apiParas['color']=color
     def getColor(self):

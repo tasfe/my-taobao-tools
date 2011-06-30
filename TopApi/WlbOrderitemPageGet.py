@@ -1,5 +1,6 @@
 class WlbOrderitemPageGet(object):
-    apiParas={'method':'taobao.wlb.orderitem.page.get'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.orderitem.page.get'}
     def setOrderCode(self,orderCode):
         self.apiParas['order_code']=orderCode
     def getOrderCode(self):

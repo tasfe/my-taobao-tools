@@ -1,5 +1,6 @@
 class WlbNotifyMessageConfirm(object):
-    apiParas={'method':'taobao.wlb.notify.message.confirm'}
+    def __init__(self):
+        self.apiParas={'method':'taobao.wlb.notify.message.confirm'}
     def setMessageId(self,messageId):
         self.apiParas['message_id']=messageId
     def getMessageId(self):
