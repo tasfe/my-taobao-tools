@@ -56,7 +56,7 @@ class showplat(handler):
             req.setNumIid(num_iid)
             req.setFields('cid,desc')
             item=client.execute(req.getApiParas())['item']
-            showplat=items.showplat(shop_key['appkey'],item['cid'])
+            showplat=items.showplat(shop_key['appkey'],num_iid,item['cid'])
             adstr=u'<a name="eshop_begin_cid%s"></a><div style="width:750px;font-size:14px;margin:0px auto;overflow:hidden;background-color:#ffffff;"><img src="http://eshop.alibaba.com/qbuilder/STATIC_SERVER/c2c/face0/images/goodspromotion/templete2.jpg" style="float:left;" /><ul style="width:726px;margin:0px;padding:0px 12px;overflow:hidden;float:left;">'%(item['cid'],)
             for value in showplat:
                 adstr='%s%s'%(adstr,u'<li style="width:222px;padding:0px 10px;overflow:hidden;display:inline;float:left;" title="点击查看详情"><a href="http://item.taobao.com/item.htm?id=%s" style="color:#aaaaaa;" target="_blank"><img src="%s_310x310.jpg" style="width:220px;height:220px;border:#cccccc 1px solid;float:left;" /></a><p style="width:222px;padding:5px 0px;overflow:hidden;float:left;"><a href="http://item.taobao.com/item.htm?id=%s" style="width:222px;color:#aaaaaa;overflow:hidden;float:left;" target="_blank">%s</a><b style="width:102px;overflow:hidden;color:#be2600;font-size:20px;font-weight:bold;float:right;"><span style="color:#aaaaaa;">&yen;&nbsp;</span>%s</b></p></li>'%(value['num_iid'],value['pic_url'],value['num_iid'],value['title'],value['price']))
