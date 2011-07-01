@@ -178,14 +178,14 @@ class items():
             return self.instock_showcase(user)
 
     @classmethod
-    def showplat(self,user='',cid=0,num=9):
+    def showplat(self,user='',num_iid=0,cid=0,num=12):
         user=user or base.user()
         shop_key=base.getkey(user)
         data=memcache.get('%s%s'%('hotsale_',cid),user)
-        if type(data) is types.ListType:
-            return data
-        else:
-            return self.request_hotsale(shop_key,cid,num)
+        if type(data) is not types.ListType:
+            data=self.request_hotsale(shop_key,cid,num)
+        data=filter(lambda x:x['num_iid']!=num_iid,data)
+        return data[0:num]
 
     @classmethod
     def refresh_onsale(self,user=''):
@@ -209,7 +209,7 @@ class items():
         client.appkey=shop_key['appkey']
         client.secretKey=shop_key['secretKey']
         onsale={}
-        onsale_sort={}
+        onsale_sort=[]
         showcase=[]
         req=ItemsOnsaleGet()
         req.setFields(self.item_fields)
@@ -222,7 +222,7 @@ class items():
                     onsale[item['num_iid']]=item
                     delist_time=long(time.mktime(time.strptime(item['delist_time'],'%Y-%m-%d %H:%M:%S')))
                     if delist_time%86400!=0:
-                        onsale_sort[item['num_iid']]=delist_time
+                        onsale_sort.append((item['num_iid'],delist_time))
                     if item['has_showcase']==True:
                         showcase.append(item['num_iid'])
                 if req.getPageNo()>=int(math.ceil(data['total_results']/float(req.getPageSize()))):
@@ -230,8 +230,9 @@ class items():
             else:
                 break
             req.setPageNo(req.getPageNo()+1)
+        onsale_sort.sort(key=lambda x:x[1],reverse=False)
         memcache.set('onsale',onsale,0,0,shop_key['appkey'])
-        memcache.set('onsale_sort',sorted(onsale_sort.iteritems(),key=lambda x:x[1],reverse=False),0,0,shop_key['appkey'])
+        memcache.set('onsale_sort',onsale_sort,0,0,shop_key['appkey'])
         memcache.set('showcase',showcase,0,0,shop_key['appkey'])
 
     @classmethod
@@ -239,7 +240,7 @@ class items():
         client=TopClient()
         client.appkey=shop_key['appkey']
         client.secretKey=shop_key['secretKey']
-        instock_regular={}
+        instock_regular=[]
         instock_violation={}
         instock_shelved={}
         instock_showcase=[]
@@ -252,7 +253,7 @@ class items():
             data=client.execute(req.getApiParas())
             if data.has_key('items'):
                 for item in data['items']['item']:
-                    instock_regular[item['num_iid']]=long(time.mktime(time.strptime(item['delist_time'],'%Y-%m-%d %H:%M:%S')))
+                    instock_regular.append((item['num_iid'],long(time.mktime(time.strptime(item['delist_time'],'%Y-%m-%d %H:%M:%S')))))
                 if req.getPageNo()>=int(math.ceil(data['total_results']/float(req.getPageSize()))):
                     break
             else:
@@ -284,7 +285,8 @@ class items():
             else:
                 break
             req.setPageNo(req.getPageNo()+1)
-        memcache.set('instock_regular',sorted(instock_regular.iteritems(),key=lambda x:x[1],reverse=False),0,0,shop_key['appkey'])
+        instock_regular.sort(key=lambda x:x[1],reverse=False)
+        memcache.set('instock_regular',instock_regular,0,0,shop_key['appkey'])
         memcache.set('instock_violation',instock_violation,0,0,shop_key['appkey'])
         memcache.set('instock_shelved',instock_shelved,0,0,shop_key['appkey'])
         memcache.set('instock_showcase',instock_showcase,0,0,shop_key['appkey'])
@@ -299,14 +301,18 @@ class items():
         req.setFields(self.item_fields)
         req.setNicks(shop.info(shop_key['appkey'])['user']['nick'])
         req.setOrderBy('volume:desc')
-        req.setPageSize(num)
-        if cid>0: req.setCid(cid)
+        req.setPageSize(num+1)
+        if cid>0:
+            flag=[]
+            req.setCid(cid)
         data=client.execute(req.getApiParas())
         if data.has_key('items'):
             for item in data['items']['item']:
                 showplat.append(item)
-        if len(showplat)<num:
-            showplat.extend(self.showplat(shop_key['appkey'],0,num)[0:num-len(showplat)])
+                if cid>0: flag.append(item['num_iid'])
+        if len(showplat)<=num and cid>0:
+            showplat.extend(filter(lambda x:x['num_iid'] not in flag,self.showplat(shop_key['appkey'],0,0,num)))
+            showplat=showplat[0:num+1]
         memcache.set('%s%s'%('hotsale_',cid),showplat,3600,0,shop_key['appkey'])
         return showplat
 
