@@ -11,7 +11,7 @@
 ################################################################################
 
 
-PROGRAM = test
+PROGRAM = test.exe
 
 
 CPP = cl.exe
@@ -26,10 +26,6 @@ CPPFLAGS = /D "WIN32"	\
 	\
 	/MDd	\
 	/analyze-	\
-	/I "D:\Lordol2Lib\library\STLport-5.2.1\stlport"	\
-	/I "D:\Lordol2Lib\library\mysql 5.0\include"	\
-	/I "D:\Lordol2Lib\library\boost_1_48_0"	\
-	/I "D:\Lordol2Lib\library\libcurl-7.19.3-win32-ssl-msvc\include"	\
 	\
 	/Zc:forScope	\
 	/Fo	\
@@ -72,9 +68,6 @@ LINKFLAGS = /SUBSYSTEM:CONSOLE	\
 	"uuid.lib"	\
 	"odbc32.lib"	\
 	"odbccp32.lib"	\
-	/LIBPATH:"D:\Lordol2Lib\library\STLport-5.2.1\lib"	\
-	/LIBPATH:"D:\Lordol2Lib\library\mysql 5.0\lib\debug"	\
-	/LIBPATH:"D:\Lordol2Lib\library\libcurl-7.19.3-win32-ssl-msvc\lib\Debug"	\
 	\
 	
 
