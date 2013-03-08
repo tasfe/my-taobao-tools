@@ -84,7 +84,7 @@ all: $(PROGRAM)
 
 
 $(PROGRAM): $(CPPOBJECTS)
-	link.exe /out:$(PROGRAM) \stdafx.obj \test.obj $(LINKFLAGS)
+	link.exe /out:$(PROGRAM) stdafx.obj test.obj $(LINKFLAGS)
 
 
 stdafx.obj: stdafx.cpp
